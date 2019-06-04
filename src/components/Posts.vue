@@ -1,35 +1,46 @@
 <template>
   <div class="posts">
-    <h1>Posts</h1>
-    <div v-if="posts.length > 0" class="table-wrap">
-      <div>
-        <router-link v-bind:to="{ name: 'NewPost' }" class="">Add Post</router-link>
-      </div>
-      <table>
-        <tr>
-          <td>Title</td>
-          <td width="250">Description</td>
-          <td>categorie</td>
-          <td>Date de création</td>
-          <td width="100" align="center">Action</td>
-        </tr>
-        <tr v-for="post in posts">
-          <td>{{ post.title }}</td>
-          <td>{{ post.content }}</td>
-          <td>{{ post.category }}</td>
-          <td>{{ post.createdAt }}</td>
-          <td align="center">
-            <router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }">Edit</router-link> |
-            <a href="#" @click="deletePost(post._id)">Delete</a>
-          </td>
-        </tr>
-      </table>
+    <h1>Liste des Articles</h1>
+<div class="container"  v-for="post in posts">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="#" class="MakaleYazariAdi">{{post.category}}</a>
+            <div class="btn-group" style="float:right;">
+            	<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            		<span class="glyphicon glyphicon-cog"></span>
+            		<span class="sr-only">Toggle Dropdown</span>
+            	</button>
+            	<ul class="dropdown-menu">
+            		<li><router-link v-bind:to="{ name: 'EditPost', params: { id: post._id } }"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</router-link></li>
+            		<li role="separator" class="divider"></li>
+            		<li><a href="/" @click="deletePost(post._id)"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete</a></li>
+            	</ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Canis_lupus.jpg/260px-Canis_lupus.jpg" alt="Kurt">
+                    </a>
+                    Posté le {{post.createdAt}}
+                </div>
+                <div class="media-body">
+                <h4 class="media-heading">{{ post.title }}</h4>
+               {{ post.content }}
+                <div class="clearfix"></div>
+                <div class="btn-group" role="group" id="BegeniButonlari">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+                </div>                 
+               </div>
+            </div>
+        </div>
     </div>
-    <div v-else>
-      There are no posts.. Lets add one now <br /><br />
-      <router-link v-bind:to="{ name: 'NewPost' }" class="add_post_link">Add Post</router-link>
-    </div>
+</div>
   </div>
+
 </template>
 
 <script>
@@ -56,7 +67,7 @@ export default {
   }
 }
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 .table-wrap {
   width: 60%;
   margin: 0 auto;

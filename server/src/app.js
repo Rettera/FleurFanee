@@ -3,9 +3,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
+const app = express()
+
 var Post = require('../models/post')
 
-const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
@@ -18,22 +19,14 @@ db.once('open', function (callback) {
   console.log('Connection Succeeded')
 })
 
-/*var multer = require('multer')
-app.use(multer({ dest: './uploads/',
-  rename: function (fieldname, filename) {
-    return filename
-  }
-}))*/
-
 // Add new post
 app.post('/posts', (req, res) => {
-    var db = req.db
-    var title = req.body.title
-    var content = req.body.content
-    var category = req.body.category
-    var image = req.body.image
-    var createdAt = req.body.createdAt
-
+  var db = req.db
+  var title = req.body.title
+  var content = req.body.content
+  var category = req.body.category
+  var image = req.body.image
+  var createdAt = req.body.createdAt
 
     var new_post = new Post({
       title: title,

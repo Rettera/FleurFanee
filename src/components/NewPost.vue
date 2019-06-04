@@ -21,7 +21,6 @@
     <textarea class="form-control" id="content" rows="10" v-model="content">Lorem Ipsum ...</textarea>
   </div>
 </div>
-
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="category">Categorie</label>
@@ -85,7 +84,7 @@ export default {
         image: this.image,
         createdAt: this.createdAt
       })
-      router.push({ name: 'Posts' })
+      this.router.push({ name: 'Posts' })
     }
   }
 }
