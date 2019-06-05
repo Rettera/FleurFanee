@@ -1,9 +1,14 @@
 <template>
  <div class="home">
+        <div style="float:right;margin:3% 7% 0 0">
+       <h1>Fleurs Fanées</h1>
+       <h2>Ou regarder des fleurs en s'amusant</h2>
+     </div>
    <div class="container">
+
   <div class="fourth">
     <ul>
-      <li><h1>Fleur Fanée</h1></li>
+      <li></li>
       <li></li>
       <li></li>
       <li></li>
@@ -81,11 +86,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-
+h1, h2{
+  color: white;
+}
 $background: #0f111d; //#161843;
-$eggBody: #fff;
+$eggBody: rgb(255, 238, 0);
 $eggFace: 140px;
-$yolk: #ffdb10;
+$yolk: #62af66;
 $eyes: #000;
 $eyeRadius: 15px;
 $cheeks: #ff7e7e;

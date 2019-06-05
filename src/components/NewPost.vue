@@ -90,5 +90,7 @@ export default {
 }
 </script>
 <style type="text/css">
-
+legend, label{
+  color: antiquewhite
+}
 </style>

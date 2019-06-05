@@ -4,6 +4,9 @@ import Home from '@/components/Home'
 import Posts from '@/components/Posts'
 import NewPost from '@/components/NewPost'
 import EditPost from '@/components/EditPost'
+import Login from '@/components/Login'
+import Register from '@/components/Register'
+import Profile from '@/components/Profile'
 
 Vue.use(Router)
 
@@ -34,6 +37,21 @@ export default new Router({
       // will match everything
       path: '*',
       redirect: {name: 'Home'}
+        },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile
     }
   ]
 })

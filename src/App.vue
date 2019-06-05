@@ -24,10 +24,21 @@
         <div class="form-group">
           <input class="form-control" placeholder="Search" type="text">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">rechercher</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Connexion <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><router-link to="/login">S'identifier</router-link></li>
+            <li><router-link to="/register">S'enregistrer</router-link></li>
+            <li><router-link to="/profil">Page personelle</router-link></li>
+              <li class="divider"></li>
+              <li class="nav-header">Nos partenaire</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> 
       </ul>
     </div>
   </div>
@@ -45,5 +56,8 @@ export default {
 <style>
 body{
 background-color: #161843;
+}
+h1,p{
+  color: antiquewhite
 }
 </style>
