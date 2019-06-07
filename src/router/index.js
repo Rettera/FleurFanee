@@ -26,18 +26,20 @@ export default new Router({
     {
       path: '/posts/new',
       name: 'NewPost',
-      component: NewPost
+      component: NewPost,
+      beforeEnter: guard
     },
     {
       path: '/posts/:id',
       name: 'EditPost',
-      component: EditPost
+      component: EditPost,
+      beforeEnter: guard
     },
     {
       // will match everything
       path: '*',
       redirect: {name: 'Home'}
-        },
+    },
     {
       path: '/login',
       name: 'Login',
@@ -51,7 +53,8 @@ export default new Router({
     {
       path: '/profile',
       name: 'Profile',
-      component: Profile
+      component: Profile,
+      beforeEnter: guard
     }
   ]
 })

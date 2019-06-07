@@ -58,6 +58,7 @@
 
 <script>
 import PostsService from '@/services/PostsService'
+import router from '../router'
 var moment = require('moment')
 moment.locale('fr')
 export default {
@@ -84,7 +85,7 @@ export default {
         image: this.image,
         createdAt: this.createdAt
       })
-      this.router.push({ name: 'Posts' })
+      router.push({ name: 'Posts' })
     }
   }
 }

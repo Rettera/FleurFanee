@@ -2,10 +2,10 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
-    first_name: {
+    pseudo: {
         type: String
     },
-    last_name: {
+    profil: {
         type: String
     },
     email: {

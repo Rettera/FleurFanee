@@ -5,12 +5,12 @@
         <form v-on:submit.prevent="register">
           <h1 class="h3 mb-3 font-weight-normal">Register</h1>
           <div class="form-group">
-            <label for="first_name">First Name</label>
-            <input type="text" v-model="first_name" class="form-control" name="first_name" placeholder="Enter Fist Name">
+            <label for="pseudo">Pseudo</label>
+            <input type="text" v-model="pseudo" class="form-control" name="pseudo" placeholder="Votre Pseudo">
           </div>
           <div class="form-group">
-            <label for="last_name">Last Name</label>
-            <input type="text" v-model="last_name" class="form-control" name="last_name" placeholder="Enter Last Name">
+            <label for="profil">Image de Profil</label>
+            <input type="text" v-model="profil" class="form-control" name="profil" placeholder="Votre URL d'image de profile">
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
@@ -34,8 +34,8 @@ import router from '../router'
 export default {
   data () {
     return {
-      first_name: '',
-      last_name: '',
+      pseudo: '',
+      profil: '',
       email: '',
       password: ''
     }
@@ -43,9 +43,9 @@ export default {
 
   methods: {
     register () {
-      axios.post('users/register', {
-        first_name: this.first_name,
-        last_name: this.last_name,
+      axios.post('http://localhost:8081/users/register', {
+        pseudo: this.pseudo,
+        profil: this.profil,
         email: this.email,
         password: this.password
       }).then(res => {

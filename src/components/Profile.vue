@@ -7,12 +7,12 @@
             <table class="table col-md-6 mx-auto">
                 <tbody>
                     <tr>
-                        <td>First Name</td>
-                        <td>{{first_name}}</td>
+                        <td>Pseudo</td>
+                        <td>{{pseudo}}</td>
                     </tr>
                     <tr>
-                        <td>Last Name</td>
-                        <td>{{last_name}}</td>
+                        <td>Image de profile</td>
+                        <td><img src="" alt="image de profile">{{profil}}</td>
                     </tr>
                     <tr>
                         <td>Email</td>
@@ -32,8 +32,8 @@ export default {
     const token = localStorage.usertoken
     const decoded = jwtDecode(token)
     return {
-      first_name: decoded.first_name,
-      last_name: decoded.last_name,
+      pseudo: decoded.pseudo,
+      profil: decoded.profil,
       email: decoded.email
     }
   }
