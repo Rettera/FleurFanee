@@ -27,17 +27,22 @@ export default new Router({
       path: '/posts/new',
       name: 'NewPost',
       component: NewPost,
-      beforeEnter: guard
+      /*redirect: to => {
+        if (users.pseudo === '') {
+          return {path: '/login', code:'403'}
+        }
+      } */
+     
     },
     {
       path: '/posts/:id',
       name: 'EditPost',
-      component: EditPost,
-      beforeEnter: guard
+      component: EditPost
     },
     {
       // will match everything
       path: '*',
+      name: '404',
       redirect: {name: 'Home'}
     },
     {
@@ -53,8 +58,7 @@ export default new Router({
     {
       path: '/profile',
       name: 'Profile',
-      component: Profile,
-      beforeEnter: guard
+      component: Profile
     }
   ]
 })

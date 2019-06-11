@@ -16,6 +16,7 @@ users.post('/register', ( req, res ) => {
     profil: req.body.profil,
     email: req.body.email,
     password: req.body.password,
+    mode: req.body.mode,
     created: today
   }
 
@@ -58,7 +59,8 @@ users.post( '/login', ( req, res ) => {
             _id: user._id,
             pseudo: user.pseudo,
             profil: user.profil,
-            email: user.email
+            email: user.email,
+            mode: user.mode
           }
           let token = jwt.sign( payload, process.env.SECRET_KEY, {
             expiresIn: 1440

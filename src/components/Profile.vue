@@ -12,7 +12,7 @@
                     </tr>
                     <tr>
                         <td>Image de profile</td>
-                        <td><img src="" alt="image de profile">{{profil}}</td>
+                        <td><img v-bind:src="profil" alt="image de profile">{{profil}}</td>
                     </tr>
                     <tr>
                         <td>Email</td>

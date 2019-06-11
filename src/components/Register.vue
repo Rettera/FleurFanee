@@ -37,7 +37,8 @@ export default {
       pseudo: '',
       profil: '',
       email: '',
-      password: ''
+      password: '',
+      mode: 'user'
     }
   },
 
@@ -47,7 +48,8 @@ export default {
         pseudo: this.pseudo,
         profil: this.profil,
         email: this.email,
-        password: this.password
+        password: this.password,
+        mode: this.mode
       }).then(res => {
         router.push({ name: 'Login' })
       }).catch(err => {

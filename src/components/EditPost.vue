@@ -19,7 +19,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="content">Contenu</label>
   <div class="col-md-6">
-    <textarea class="form-control" id="content" rows="10" v-model="content">Lorem Ipsum ...</textarea>
+   <ckeditor :editor="editor" v-model="content" :config="editorConfig"></ckeditor>
   </div>
 </div>
 
@@ -59,6 +59,7 @@
 
 <script>
 import PostsService from '@/services/PostsService'
+ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
   name: 'EditPost',
   data () {
@@ -66,7 +67,19 @@ export default {
       title: '',
       content: '',
       category: '',
-      image: ''
+      image: '',
+      editor: ClassicEditor,
+      editorData: 'Lorem Ipsum...',
+      editorConfig: {
+        language: 'fr',
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraphe', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Titre 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Titre 2', class: 'ck-heading_heading2' }
+            ]
+        }
+        },
     }
   },
   mounted () {

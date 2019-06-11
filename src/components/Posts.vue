@@ -4,9 +4,9 @@
 <div class="container"  v-for="post in posts">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <a href="#" class="MakaleYazariAdi">{{post.category}}</a>
+            <a href="#">{{post.category}}</a>
             <div class="btn-group" style="float:right;">
-            	<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            	<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-if="">
             		<span class="glyphicon glyphicon-cog"></span>
             		<span class="sr-only">Toggle Dropdown</span>
             	</button>
@@ -28,11 +28,10 @@
                 </div>
                 <div class="media-body">
                 <h4 class="media-heading">{{ post.title }}</h4>
-               {{ post.content }}
+              <p class="content"><span v-html="post.content"></span></p> 
                 <div class="clearfix"></div>
                 <div class="btn-group" role="group" id="BegeniButonlari">
-                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span> Lire la suite</button>
                 </div>                 
                </div>
             </div>
@@ -68,6 +67,12 @@ export default {
 }
 </script>
 <style type="text/css" scoped>
+.content{
+  height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkblue
+}
 .table-wrap {
   width: 60%;
   margin: 0 auto;
