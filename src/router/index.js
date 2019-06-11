@@ -8,6 +8,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Profile from '@/components/Profile'
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -27,12 +28,11 @@ export default new Router({
       path: '/posts/new',
       name: 'NewPost',
       component: NewPost,
-      /*redirect: to => {
-        if (users.pseudo === '') {
-          return {path: '/login', code:'403'}
+ /*     redirect: pseudo => {
+        if (pseudo === 'n') {
+          return {path: '/login'}
         }
       } */
-     
     },
     {
       path: '/posts/:id',

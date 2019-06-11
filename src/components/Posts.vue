@@ -1,3 +1,4 @@
+ /* eslint-disable */
 <template>
   <div class="posts">
     <h1>Liste des Articles</h1>
@@ -5,8 +6,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <a href="#">{{post.category}}</a>
-            <div class="btn-group" style="float:right;">
-            	<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-if="">
+            <div class="btn-group" style="float:right;"  v-if="mode==='admin'">
+            	<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             		<span class="glyphicon glyphicon-cog"></span>
             		<span class="sr-only">Toggle Dropdown</span>
             	</button>
@@ -44,11 +45,17 @@
 
 <script>
 import PostsService from '@/services/PostsService'
+import jwtDecode from 'jwt-decode'
+
 export default {
   name: 'posts',
   data () {
+    const token = localStorage.usertoken
+    const decoded = jwtDecode(token)
     return {
-      posts: []
+      posts: [],
+      mode: decoded.mode,
+
     }
   },
   mounted () {

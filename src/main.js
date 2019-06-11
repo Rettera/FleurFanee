@@ -10,8 +10,6 @@ Vue.use( CKEditor )
 var moment = require('moment')
 moment().format()
 
-
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

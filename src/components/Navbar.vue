@@ -15,8 +15,11 @@
       <ul class="nav navbar-nav">
         <li><router-link to="/">Home <span class="sr-only">(current)</span></router-link></li>
         <li><router-link to="/posts">Articles</router-link></li>
-        <li>
+        <li v-if="auth=='loggedin'">
           <router-link to="/posts/new">Nouvel Article</router-link>
+        </li>
+        <li v-else class="btn disabled" style="padding:0">
+          <router-link to="">Nouvel Article</router-link>
         </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
