@@ -1,11 +1,11 @@
 <template>
     <div class="article">
         <div class="container-fluid">
-	<div class="row">
+	<div class="row" v-for="post in posts" v-if="post.id == $route.params._id">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-2">
-					<img alt="Bootstrap Image Preview" v-bind:src="image"/>
+					<img alt="Bootstrap Image Preview" v-bind:src="post.image"/>
 				</div>
 				<div class="col-md-10">
 					<div class="page-header">
@@ -24,7 +24,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					 <h3>Dans <strong>{{post.category}}<strong></h3>
+					 <h3>Dans <strong>{{post.category}}</strong></h3>
 				</div>
 				<div class="col-md-4">
 					<h3>
@@ -45,7 +45,8 @@
 
 <script>
 export default {
-    
+    name: 'Post',
+  	props: ['posts'],
 }
 </script>
 

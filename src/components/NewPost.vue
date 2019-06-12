@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-<form class="form-horizontal">
+<form class="form-horizontal" v-on:submit.prevent>
 <fieldset>
 
 <!-- Form Name -->
@@ -59,12 +59,16 @@
 <script>
 import PostsService from '@/services/PostsService'
 import router from '../router'
- import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import jwtDecode from 'jwt-decode'
 var moment = require('moment')
 moment.locale('fr')
+
 export default {
   name: 'NewPost',
   data () {
+    const token = localStorage.usertoken
+    const decoded = jwtDecode(token)
     return {
       title: '',
       content: '',
@@ -74,23 +78,12 @@ export default {
       editorData: 'Lorem Ipsum...',
       editorConfig: {
         language: 'fr',
-        heading: {
-            options: [
-                { model: 'paragraph', title: 'Paragraphe', class: 'ck-heading_paragraph' },
-                { model: 'heading1', view: 'h1', title: 'Titre 1', class: 'ck-heading_heading1' },
-                { model: 'heading2', view: 'h2', title: 'Titre 2', class: 'ck-heading_heading2' }
-            ]
-        }
         },
       createdAt: moment(new Date()).format('LLL'),
-      //author: this.users.pseudo
-
+      pseudo: decoded.pseudo
     }
   },
   methods: {
-    processFile (event) {
-      this.image = event.target.files[0]
-    },
     async addPost () {
       await PostsService.addPost({
         title: this.title,
@@ -98,7 +91,7 @@ export default {
         category: this.category,
         image: this.image,
         createdAt: this.createdAt,
-        //author: this.author
+        author: this.pseudo
       })
       router.push({ name: 'Posts' })
     }

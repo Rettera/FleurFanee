@@ -33,13 +33,15 @@ app.post('/posts', (req, res) => {
   var category = req.body.category
   var image = req.body.image
   var createdAt = req.body.createdAt
+  var author = req.body.author
 
   var new_post = new Post({
     title: title,
     content: content,
     category: category,
     image: image,
-    createdAt: createdAt
+    createdAt: createdAt,
+    author: author
   })
 
   new_post.save(function(error) {
@@ -55,7 +57,7 @@ app.post('/posts', (req, res) => {
 
 // Fetch all posts
 app.get('/posts', (req, res) => {
-  Post.find({}, 'title content category image createdAt', function(error, posts) {
+  Post.find({}, 'title content category image createdAt author', function(error, posts) {
     if (error) {
       console.error(error)
     }
@@ -69,7 +71,7 @@ app.get('/posts', (req, res) => {
 // Fetch single post
 app.get('/post/:id', (req, res) => {
   var db = req.db;
-  Post.findById(req.params.id, 'title content category image createdAt', function(error, post) {
+  Post.findById(req.params.id, 'title content category image createdAt author', function(error, post) {
     if (error) {
       console.error(error);
     }

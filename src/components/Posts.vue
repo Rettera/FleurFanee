@@ -31,8 +31,8 @@
                 <h4 class="media-heading">{{ post.title }}</h4>
               <p class="content"><span v-html="post.content"></span></p> 
                 <div class="clearfix"></div>
-                <div class="btn-group" role="group" id="BegeniButonlari">
-                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up"></span> Lire la suite</button>
+                <div class="btn-group" role="group">
+                    <router-link v-bind:to="`/post/${post._id}`" v-bind:posts="posts" class="btn btn-default">lire la suite</router-link>
                 </div>                 
                </div>
             </div>
@@ -45,16 +45,16 @@
 
 <script>
 import PostsService from '@/services/PostsService'
-import jwtDecode from 'jwt-decode'
+//import jwtDecode from 'jwt-decode'
 
 export default {
   name: 'posts',
   data () {
-    const token = localStorage.usertoken
-    const decoded = jwtDecode(token)
+    //const token = localStorage.usertoken
+    //const decoded = jwtDecode(token)
     return {
       posts: [],
-      mode: decoded.mode,
+      mode: 'user',
 
     }
   },

@@ -73,7 +73,8 @@ export default {
 
   methods: {
     logout () {
-      localStorage.removeItem('usertoken')
+      localStorage.removeItem('usertoken'),
+      $router.push('/')
     }
   },
 

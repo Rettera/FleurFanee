@@ -7,7 +7,8 @@ var PostSchema = new Schema({
   content: String,
   category: String,
   //image: { data: Buffer, contentType: String },
-  createdAt: String
+  createdAt: String,
+  author: String
 })
 
 var Post = mongoose.model("Post", PostSchema)
